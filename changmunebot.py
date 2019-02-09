@@ -11,6 +11,8 @@ async def on_ready():
     print("--------------------")
     await client.change_presence(game=discord.Game(name='', type=1))
 
+@client.event
+async def on_message(message):
     if message.content.startswith("안녕"):
         await client.send_message(message.channel, "안녕하세요! 창문이-봇입니다! '.도움'을 쳐서 명령어를 알아보세요!")
     
