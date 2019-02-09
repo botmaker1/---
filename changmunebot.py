@@ -11,22 +11,18 @@ async def on_ready():
     print("--------------------")
     await client.change_presence(game=discord.Game(name='', type=1))
 
-@client.event
-async def on_message(message):
     if message.content.startswith("안녕"):
         await client.send_message(message.channel, "안녕하세요! 창문이-봇입니다! '.도움'을 쳐서 명령어를 알아보세요!")
-@client.event
-async def on_message(message):
+    
     if message.content.startswith(".도움"):
-        await client.send_message(message.channel, "창문이-봇의 도움말입니다. 모든 명령어 앞에는 온점을 붙여주셔야 합니다!")
-@client.event
-async def on_message(message):                
+        await client.send_message(message.channel, "창문이-봇의 도움말입니다. 모든 명령어 앞에는 온점을 붙여주셔야 합니다!")               
+    
     if message.content.startswith(".주사위"):
         roll = message.content.split(" ")
         rolld  roll[1].split("d")
         dice = 0
-        for i in range(1, rolld[0]+1):
-            dice = dice + random.randint(1, rolld[1])
+        for i in range(1, int(rolld[0]+1)):
+            dice = dice + random.randint(1, int(rolld[1]))
         await client.send_message(message.channel, str(dice))
                     
 
