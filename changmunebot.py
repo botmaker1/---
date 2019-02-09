@@ -21,7 +21,7 @@ async def on_ready():
         roll = message.content.split(" ")
         rolld  roll[1].split("d")
         dice = 0
-        for i in range(1, int(rolld[0]+1)):
+        for i in range(1, int(rolld[0])+1):
             dice = dice + random.randint(1, int(rolld[1]))
         await client.send_message(message.channel, str(dice))
                     
